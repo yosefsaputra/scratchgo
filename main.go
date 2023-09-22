@@ -13,7 +13,9 @@ func main() {
 	mystr := "test"
 	myint := 100
 	my := map[string]any{"int": myint, "str": mystr}
+	debug.PtT("Debug Usage")
+	defer debug.PtT("end of Debug Usage")
 	debug.PtA(my)
-	debug.Pt("mystr", mystr)
-	debug.Pt("my", my)
+	debug.PtV("mystr", mystr)
+	debug.PtV("my", my)
 }
