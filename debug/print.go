@@ -14,6 +14,16 @@ func Pt(value string) {
 	fmt.Println(SPt(value))
 }
 
+func SPt(str string) string {
+	lines := []string{}
+	if prefix != "" {
+		lines = append(lines, prefix, ": ")
+	}
+	lines = append(lines, str)
+	return strings.Join(lines, "")
+}
+
+// Print Title
 func PtT(value string) {
 	fmt.Println(SPtT(value))
 }
@@ -32,6 +42,7 @@ func SPtT(s string) string {
 	return sb.String()
 }
 
+// Print Variable
 func PtV(key string, value any) {
 	line := ""
 	if prefix != "" {
@@ -41,29 +52,23 @@ func PtV(key string, value any) {
 	fmt.Println(line)
 }
 
-func PtA(obj any) {
-	fmt.Println(SPtA(obj))
-}
-
-func SPt(str string) string {
-	lines := []string{}
-	if prefix != "" {
-		lines = append(lines, prefix, ": ")
-	}
-	lines = append(lines, str)
-	return strings.Join(lines, "")
-}
-
 func SPtV(key string, value any) string {
-	lines := []string{}
+	sb := strings.Builder{}
 	if prefix != "" {
-		lines = append(lines, prefix, ": ")
+		sb.WriteString(prefix)
+		sb.WriteString(": ")
 	}
 	if key != "" {
-		lines = append(lines, key, "=")
+		sb.WriteString(key)
+		sb.WriteString("=")
 	}
-	lines = append(lines, fmt.Sprintf("\"%s\"", value))
-	return strings.Join(lines, "")
+	sb.WriteString(fmt.Sprintf("\"%s\"", value))
+	return sb.String()
+}
+
+// Print Any
+func PtA(obj any) {
+	fmt.Println(SPtA(obj))
 }
 
 func SPtA(obj any) string {
@@ -79,4 +84,8 @@ func SPtA(obj any) string {
 		lines = append(lines, typedobj)
 	}
 	return strings.Join(lines, "\n")
+}
+
+func Ptln() {
+	fmt.Println()
 }
