@@ -49,6 +49,7 @@ func PtV(key string, value any) {
 		line = prefix + ": "
 	}
 	line = line + fmt.Sprintf("%s=%s", key, value)
+	line = strings.ReplaceAll(line, "\n", " ")
 	fmt.Println(line)
 }
 
