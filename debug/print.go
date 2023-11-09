@@ -2,6 +2,7 @@ package debug
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -50,6 +51,7 @@ func PtV(key string, value any) {
 	}
 	line = line + fmt.Sprintf("%s=%s", key, value)
 	line = strings.ReplaceAll(line, "\n", " ")
+	line = regexp.MustCompile(`\s+`).ReplaceAllString(line, " ")
 	fmt.Println(line)
 }
 
