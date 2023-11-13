@@ -2,7 +2,6 @@ package debug
 
 import (
 	"fmt"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -45,14 +44,7 @@ func SPtT(s string) string {
 
 // Print Variable
 func PtV(key string, value any) {
-	line := ""
-	if prefix != "" {
-		line = prefix + ": "
-	}
-	line = line + fmt.Sprintf("%s=%s", key, value)
-	line = strings.ReplaceAll(line, "\n", " ")
-	line = regexp.MustCompile(`\s+`).ReplaceAllString(line, " ")
-	fmt.Println(line)
+	fmt.Println(SPtV(key, value))
 }
 
 func SPtV(key string, value any) string {
@@ -65,7 +57,7 @@ func SPtV(key string, value any) string {
 		sb.WriteString(key)
 		sb.WriteString("=")
 	}
-	sb.WriteString(fmt.Sprintf("\"%s\"", value))
+	sb.WriteString(fmt.Sprintf("\"%+v\"", value))
 	return sb.String()
 }
 
