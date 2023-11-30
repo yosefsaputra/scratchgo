@@ -2,6 +2,7 @@ package debug
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -58,7 +59,9 @@ func SPtV(key string, value any) string {
 		sb.WriteString("=")
 	}
 	sb.WriteString(fmt.Sprintf("\"%+v\"", value))
-	return sb.String()
+	space := regexp.MustCompile(`\s`)
+	s := space.ReplaceAllString(sb.String(), " ")
+	return s
 }
 
 // Print Any
