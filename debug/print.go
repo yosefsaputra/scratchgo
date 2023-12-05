@@ -59,7 +59,7 @@ func SPtV(key string, value any) string {
 		sb.WriteString("=")
 	}
 	sb.WriteString(fmt.Sprintf("\"%+v\"", value))
-	space := regexp.MustCompile(`\s`)
+	space := regexp.MustCompile(`\s+`)
 	s := space.ReplaceAllString(sb.String(), " ")
 	return s
 }
