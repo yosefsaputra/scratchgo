@@ -12,6 +12,7 @@ func main() {
 	myperson := Person{Name: "person1", Age: 12}
 	mypersonlist := []Person{{Name: "person1", Age: 12}, {Name: "person2", Age: 13}}
 	mygroup := Group{Name: "group1", Members: mypersonlist}
+	myevent := Event{Message: &mystr}
 
 	// Usage
 	debug.PtT("Debug Usage")
@@ -38,6 +39,19 @@ func main() {
 	debug.PtV("mypersonlist", mypersonlist)
 	debug.PtV("mypersonpointer", &myperson)
 	debug.PtV("mygroup", mygroup)
+	debug.PtV("myevent", myevent)
+	debug.Ptln()
+
+	debug.Pt("Print Variable in Json")
+	debug.PtVJ("mystr", mystr)
+	debug.PtVJ("myint", myint)
+	debug.PtVJ("myvarmap", myvarmap)
+	debug.PtVJ("mylist", mylist)
+	debug.PtVJ("myperson", myperson)
+	debug.PtVJ("mypersonlist", mypersonlist)
+	debug.PtVJ("mypersonpointer", &myperson)
+	debug.PtVJ("mygroup", mygroup)
+	debug.PtVJ("myevent", myevent)
 	debug.Ptln()
 }
 
@@ -49,4 +63,8 @@ type Person struct {
 type Group struct {
 	Name    string
 	Members []Person
+}
+
+type Event struct {
+	Message *string
 }

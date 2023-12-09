@@ -1,6 +1,7 @@
 package debug
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"strconv"
@@ -62,6 +63,27 @@ func SPtV(key string, value any) string {
 	space := regexp.MustCompile(`\s+`)
 	s := space.ReplaceAllString(sb.String(), " ")
 	return s
+}
+
+// Print Variable in Json
+func PtVJ(key string, value any) {
+	fmt.Println(SPtVJ(key, value))
+}
+
+func SPtVJ(key string, value any) string {
+	sb := strings.Builder{}
+	if prefix != "" {
+		sb.WriteString(prefix)
+		sb.WriteString(": ")
+	}
+	if key != "" {
+		sb.WriteString(key)
+		sb.WriteString("=")
+	}
+	space := regexp.MustCompile(`\s+`)
+	b, _ := json.Marshal(value)
+	sb.WriteString(space.ReplaceAllString(string(b), " "))
+	return sb.String()
 }
 
 // Print Any
