@@ -1,6 +1,7 @@
 {
   "packages": {
     "debug": {
+      "component": "debug",
       "release-type": "go"
     }
   }
