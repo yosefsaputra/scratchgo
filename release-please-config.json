@@ -1,6 +1,7 @@
 {
   "pull-request-title-pattern": "chore: release${component} ${version}",
   "include-component-in-tag": true,
+  "separate-pull-requests": true,
   "release-type": "go",
   "packages": {
     "debug": {
