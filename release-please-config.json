@@ -1,5 +1,7 @@
 {
   "packages": {
-    "debug": {}
+    "debug": {
+      "release-type": "go"
+    }
   }
 }
