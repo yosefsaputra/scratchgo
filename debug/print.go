@@ -30,6 +30,7 @@ func PtT(value string) {
 	fmt.Println(SPtT(value))
 }
 
+// Return Title
 func SPtT(s string) string {
 	sb := strings.Builder{}
 	if prefix != "" {
