@@ -1,9 +1,9 @@
 {
   "pull-request-title-pattern": "chore: release${component} ${version}",
+  "release-type": "go",
   "packages": {
     "debug": {
-      "component": "debug",
-      "release-type": "go"
+      "component": "debug"
     }
   }
 }
